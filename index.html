@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" >	
+	<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<div class="container" id="main-div">
+        <div id="clock" class="text-center p-5 text-light display-3">0:00:00 PM</div>
+        <div  class="text-center p-2 text-light display-5">Hi  <b>Madhaba Patra!</b> </div>
+		<div class="container mt-4 pt-4" id="searchinput" >
+			<form action="https://duckduckgo.com/" method="GET" class="form-group">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button id="bttns" class="btn btn-dark" type="button"><i class="fa fa-search"></i></button>
+					</span>
+					<input type="text" class="form-control" name="q" placeholder="Duck duck go!" aria-label="Search the web">
+					<span class="input-group-btn">
+						<button id="bttns" class="btn btn-dark" type="submit">Go!</button>
+					</span>
+				</div>
+				<small class="form-text text-muted">
+					Designed by <a href="http://madhaba.me">Madhaba Patra!</a>
+				</small>
+				
+			</form>
+		</div>
+		
+		<div class="container text-center p-0" id="linksDiv">
+			<div class="btn-group">
+                <a class="btn btn-dark" href="https://google.com"><i class="fab fa-google"></i></a>
+                <a class="btn btn-dark" href="https://mail.google.com"><i class="fas fa-envelope"></i></a>
+                <a class="btn btn-dark" href="https://www.facebook.com/madhaba.patra"><i class="fab fa-facebook"></i></a>
+                <a class="btn btn-dark" href="https://instagram.com/mr_descifrador"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-dark" href="https://play.google.com/store/apps/dev?id=6001374307369301068"><i class="fab fa-google-play"></i></a>
+				<a class="btn btn-dark" href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+				<a class="btn btn-dark" href="https://www.amazon.com/"><i class="fab fa-amazon"></i></a>
+				<a class="btn btn-dark" href="https://youtube.com"><i class="fab fa-whatsapp"></i></a>
+				<a class="btn btn-dark" href="https://github.com/MadhabaPatra"><i class="fab fa-github"></i></a>
+				
+				<!-- <a class="btn btn-dark" href="https://link.to.something">#Add a icon or an initial here#</a> -->
+			</div>
+		</div>
+		
+	</div>
+	<script>
+		function clock(){
+			
+			//Save the times in variables
+			
+			var today = new Date();
+			
+			var hours = today.getHours();
+			var minutes = today.getMinutes();
+			var seconds = today.getSeconds();
+			
+			
+			//Set the AM or PM time
+			
+			if (hours >= 12){
+				meridiem = " PM";
+			}
+			else {
+				meridiem = " AM";
+			}
+			
+			
+			//convert hours to 12 hour format and put 0 in front
+			if (hours>12){
+				hours = hours - 12;
+			}
+			else if (hours===0){
+				hours = 12;	
+			}
+			
+			//Put 0 in front of single digit minutes and seconds
+			
+			if (minutes<10){
+				minutes = "0" + minutes;
+			}
+			else {
+				minutes = minutes;
+			}
+			
+			if (seconds<10){
+				seconds = "0" + seconds;
+			}
+			else {
+				seconds = seconds;
+			}
+			
+			
+			document.getElementById("clock").innerHTML = (hours + ":" + minutes + ":" + seconds + meridiem);
+			
+		}
+		
+		setInterval('clock()', 1000);
+	</script>
+</body>
+</html>
